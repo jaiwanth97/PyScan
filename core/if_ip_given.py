@@ -4,21 +4,25 @@ import threading
 def scan_port(ip,port):
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.settimeout(0.3)
+        s.settimeout(1.0)
         result = s.connect_ex((ip,port))
         if result==0:
             print(f"[+] {port} is open")
+        elif result == 111 or result == 10061:
+            print(f"[+] {port} is closed")
         s.close()
     except:
         pass
 
 def scan_ports(ip):
-    threads = []
+    for i in range(1,65536, 1000):
+        threads = []
+        for port in range(i, min(i+1000, 65536)):
+            t = threading.Thread(target=scan_port, args=(ip, port))
+            threads.append(t)
+            t.start()
+        
+        for thread in threads:
+            thread.join()
 
-    for port in range(1, 65536):
-        t = threading.Thread(target=scan_port, args=(ip,port))
-        threads.append(t)
-        t.start()
-    
-    for thread in threads:
-        thread.join()
+scan_ports("45.33.32.156")
