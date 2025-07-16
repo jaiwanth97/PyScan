@@ -24,5 +24,3 @@ def scan_ports(ip):
         
         for thread in threads:
             thread.join()
-
-scan_ports("45.33.32.156")

@@ -48,5 +48,3 @@ def scan_hosts(ip, cidr):
             print(f"[+] Open ports are: {','.join(map(str,open_ports))}\n")
         else:
             print(f"[-]Open ports are: None\n")
-
-scan_hosts("172.17.177.60", "24")
