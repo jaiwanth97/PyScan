@@ -1,5 +1,6 @@
 import socket
 import threading
+from output.output import print_output
 
 def scan_port(ip,port):
     try:
