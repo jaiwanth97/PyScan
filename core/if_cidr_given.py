@@ -1,7 +1,7 @@
 import socket
 import ipaddress
 from concurrent.futures import ThreadPoolExecutor
-from output import print_output
+from output.output import print_output
 
 ports = [21, 22, 23, 25, 53, 80, 110, 135, 139, 143, 443, 445, 3306, 3389, 8080]
 
