@@ -1,6 +1,6 @@
 import socket
 from concurrent.futures import ThreadPoolExecutor
-from discovery import get_hosts
+from discovery import get_hosts, get_cidr, get_ip
 from output import print_output
 
 ports = [21, 22, 23, 25, 53, 80, 110, 135, 139, 143, 443, 445, 3306, 3389, 8080]
@@ -23,7 +23,9 @@ def scan_host(ip):
     return str(ip), open_ports
 
 
-def scan_hosts(ip, cidr):
+def scan_hosts():
+    ip, subnet = get_ip()
+    cidr = get_cidr(subnet)
     hosts = get_hosts(ip, cidr)
     scan_results = []
 
@@ -50,4 +52,3 @@ def scan_hosts(ip, cidr):
             lines.append(f"[-]Open ports are: None\n")
 
     print_output(lines)
-

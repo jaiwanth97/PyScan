@@ -27,3 +27,4 @@ def get_hosts(ip,cidr):
     hosts = list(network.hosts())
 
     return hosts
+
