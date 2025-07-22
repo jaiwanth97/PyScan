@@ -52,6 +52,6 @@ def scan_hosts(ip, cidr):
             print(f"[-]Open ports are: None\n")
             lines.append(f"[-]Open ports are: None\n")
 
-            print_output(lines)
+    print_output(lines)
 
 scan_hosts("192.168.1.1", "24")
