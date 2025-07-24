@@ -15,3 +15,13 @@ def scan_port(ip,port):
     except:
         pass
 
+def scan_ports(ip):
+    for i in range(1,65536, 1000):
+        threads = []
+        for port in range(i, min(i+1000, 65536)):
+            t = threading.Thread(target=scan_port, args=(ip, port))
+            threads.append(t)
+            t.start()
+        
+        for thread in threads:
+            thread.join()
