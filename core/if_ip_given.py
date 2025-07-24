@@ -25,3 +25,4 @@ def scan_ports(ip):
         
         for thread in threads:
             thread.join()
+            
