@@ -30,7 +30,7 @@ def scan_hosts(ip, cidr):
     hosts = get_hosts(ip, cidr)
     scan_results = []
 
-    with ThreadPoolExecutor(max_workers=1000) as executor:
+    with ThreadPoolExecutor(max_workers=100) as executor:
         task_ip_map = {}
         for host in hosts:
             task = executor.submit(scan_host, str(host))
