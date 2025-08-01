@@ -3,7 +3,7 @@ from core.if_ip_given import scan_ports
 from core.scanner import scan_hosts as scan_hosts_lan
 from core.if_cidr_given import scan_hosts
 
-app = typer.Typer(help="NetHawk - Lightweight Network Scanner")
+app = typer.Typer(help="PyScan - Lightweight Network Scanner")
 
 @app.command("scan-ports")
 def scan_ports_cli(ip: str = typer.Argument(..., help="IP address to scan ports on")):
