@@ -1,6 +1,6 @@
-# NetHawk - Lightweight Network Scanner
+# PyScan - Lightweight Network Scanner
 
-A fast and efficient network scanner built in Python for discovering hosts and scanning ports on local networks and specific IP addresses.
+A fast and efficient network scanner built in Python for discovering hosts and scanning ports on networks and specific IP addresses.
 
 ## Features
 
@@ -9,14 +9,13 @@ A fast and efficient network scanner built in Python for discovering hosts and s
 - **Network Range Scanning**: Scan hosts within a specified CIDR range
 - **Multi-threaded**: Fast concurrent scanning for improved performance
 - **Output Logging**: Automatically saves scan results to timestamped files
-- **Cross-platform**: Works on Windows, Linux, and macOS
 
 ## Installation
 
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd nethawk
+cd PyScan
 ```
 
 2. Install required dependencies:
@@ -24,14 +23,9 @@ cd nethawk
 pip install typer
 ```
 
-3. Make the script executable (Linux/macOS):
-```bash
-chmod +x main.py
-```
-
 ## Usage
 
-NetHawk provides three main scanning modes through a command-line interface:
+PyScan provides three main scanning modes through a command-line interface:
 
 ### 1. LAN Sweep
 Automatically discovers your local network configuration and scans all hosts:
@@ -69,9 +63,9 @@ Example:
 python main.py scan-hosts 192.168.1.0 24
 ```
 
-## Common Ports Scanned
+## Common Ports Scanned if CIDR is given
 
-NetHawk scans the following commonly used ports by default in LAN sweep and network range scanning modes:
+PyScan scans the following commonly used ports by default in LAN sweep and network range scanning modes to avoid network impact:
 
 - **21** - FTP
 - **22** - SSH
@@ -111,11 +105,12 @@ File created at: 2024-01-15 14:30:25.123456
 [_]Scanning ip address 192.168.1.100:
 [-]Open ports are: None
 ```
+Check the txt file for more clarity
 
 ## Project Structure
 
 ```
-nethawk/
+pyscan/
 ├── main.py                 # CLI entry point
 ├── core/
 │   ├── __init__.py
@@ -129,7 +124,7 @@ nethawk/
 
 ## Performance Features
 
-- **Concurrent Scanning**: Uses ThreadPoolExecutor with up to 100 worker threads for fast network scanning
+- **Concurrent Scanning**: Uses ThreadPoolExecutor with up to 1000 worker threads for fast network scanning
 - **Optimized Timeouts**: 1-second socket timeouts to balance speed and accuracy
 - **Efficient Port Scanning**: Batched port scanning in chunks of 1000 ports for single IP scans
 - **Smart Network Detection**: Automatic IP and subnet mask detection on Windows systems
@@ -139,11 +134,6 @@ nethawk/
 - Python 3.6+
 - `typer` library for CLI interface
 - Standard library modules: `socket`, `subprocess`, `ipaddress`, `concurrent.futures`, `threading`
-
-## Platform Support
-
-- **Windows**: Full support with automatic network configuration detection
-- **Linux/macOS**: Core functionality supported (may require manual network configuration for some features)
 
 ## Security Considerations
 
