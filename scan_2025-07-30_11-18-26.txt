@@ -1,4 +1,5 @@
 File created at: 2025-07-30 11:18:26.656566
+
 [_]Scanning ip address 172.17.48.1:
 [+] Open ports are: 22,53,80,443
 
@@ -8,7 +9,7 @@ File created at: 2025-07-30 11:18:26.656566
 [_]Scanning ip address 172.17.48.3:
 [-]Open ports are: None
 
-[_]Scanning ip address 172.17.48.4:
+[_]Scanning Ip address 172.17.48.4:
 [-]Open ports are: None
 
 [_]Scanning ip address 172.17.48.5:
@@ -17,7 +18,7 @@ File created at: 2025-07-30 11:18:26.656566
 [_]Scanning ip address 172.17.48.6:
 [-]Open ports are: None
 
-[_]Scanning ip address 172.17.48.7:
+[_]Scanning Ip address 172.17.48.7:
 [-]Open ports are: None
 
 [_]Scanning ip address 172.17.48.8:

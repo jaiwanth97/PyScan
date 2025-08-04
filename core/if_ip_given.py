@@ -12,6 +12,8 @@ def scan_port(ip,port):
         elif result == 111 or result == 10061:
             print(f"[+] {port} is closed")
         s.close()
+    except socket.timeout:
+            print(f"[-] {port} is filtered")
     except:
         pass
 
